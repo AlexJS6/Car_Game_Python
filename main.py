@@ -4,10 +4,13 @@ import os
 import time
 import random
 pygame.font.init()
+pygame.mixer.init()
 
 WIDTH, HEIGHT = 500, 750
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Trafic')
+
+CRASH_SOUND = pygame.mixer.Sound('assets/crash.mp3')
 
 # Images
 PLAYER_CAR = pygame.image.load(os.path.join('assets', 'player.png'))
@@ -70,6 +73,7 @@ def main():
     run = True
     FPS = 60
     lives = 3
+    score = 0
     main_font = pygame.font.SysFont('comicsans', 50)
     lost_font = pygame.font.SysFont('comicsans', 60)
 
@@ -89,7 +93,7 @@ def main():
         WIN.blit(BG, (0, 0))
 
         lives_label = main_font.render(f'Lives: {lives}', 1, (150, 0, 0))
-        score_label = main_font.render(f'Score: {lives}', 1, (150, 0, 0))
+        score_label = main_font.render(f'Score: {int(score)}', 1, (150, 0, 0))
 
         WIN.blit(lives_label, (10, HEIGHT - 40))
         WIN.blit(score_label, (WIDTH - score_label.get_width() -10, 10))
@@ -116,6 +120,7 @@ def main():
 
         if len(enemies) <= 3:
             enemy_vel += 0.1
+            score += 30* enemy_vel
             for i in range(3):
                 enemy = Enemy(random.choice([110, 180, 260, 335]), random.randrange(-1500, -150), random.choice(['red', 'yellow', 'blue', 'green']))
                 #pass # enemy = Enemy(choice(x), choice(y), choice(color))
@@ -137,8 +142,13 @@ def main():
 
         for enemy in enemies[:]: # try without [:]
             enemy.move(enemy_vel)
+            '''if collide(enemy, enemy):
+                enemies.remove(enemy)'''
 
             if collide(enemy, player):
+                CRASH_SOUND.play()
+                time.sleep(1)
+                CRASH_SOUND.stop()
                 lives -= 1
                 enemies.remove(enemy)
             elif enemy.y > HEIGHT:
@@ -149,3 +159,5 @@ def main_menu():
     pass
 
 main()
+
+# cars can't be 1 on another
