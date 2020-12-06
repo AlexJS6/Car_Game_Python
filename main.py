@@ -141,10 +141,9 @@ def main():
             player.y += player_vel
 
         for enemy in enemies[:]: # try without [:]
-            enemy.move(enemy_vel)
-            '''if collide(enemy, enemy):
-                enemies.remove(enemy)'''
-
+            '''if (enemy.y < pos[0] +150 and enemy.y > pos[0] -150) and enemy.x == pos[1]:
+                enemies.remove(enemy)
+            pos = (enemy.y, enemy.x)'''
             if collide(enemy, player):
                 CRASH_SOUND.play()
                 time.sleep(1)
