@@ -86,6 +86,9 @@ def main():
     def redraw_window():
         WIN.blit(BG, (0, 0))
 
+        for enemy in enemies:
+            enemy.draw(WIN)
+
         player.draw(WIN)
 
         if lost:
@@ -102,6 +105,13 @@ def main():
 
         if lost:
             pass
+
+        if len(enemies) <= 3:
+            #enemy_vel += 0.1
+            for i in range(3):
+                enemy = Enemy(random.choice([100, 180, 260, 340]), random.randrange(-1500, -150), random.choice(['red', 'yellow', 'blue', 'green']))
+                #pass # enemy = Enemy(choice(x), choice(y), choice(color))
+                enemies.append(enemy)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
