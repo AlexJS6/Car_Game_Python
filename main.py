@@ -163,8 +163,8 @@ def main():
                 enemies.remove(enemy)
             
 # maybe launch in waves
-'''def main_menu():
-    title_font = pygame.font.SysFont("comicsans", 70)
+def main_menu():
+    title_font = pygame.font.SysFont("comicsans", 50)
     run = True
     while run:
         WIN.blit(BG, (0,0))
@@ -176,8 +176,8 @@ def main():
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 main()
-    pygame.quit()'''
+    pygame.quit()
 
-main()
+main_menu()
 
 # cars can't be 1 on another
