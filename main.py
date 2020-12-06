@@ -122,7 +122,7 @@ def main():
             enemy_vel += 0.1
             score += 30* enemy_vel
             for i in range(3):
-                enemy = Enemy(random.choice([110, 180, 260, 335]), random.randrange(-1500, -150), random.choice(['red', 'yellow', 'blue', 'green']))
+                enemy = Enemy(random.choice([110, 180, 260, 335]), random.randrange(-2000, -500), random.choice(['red', 'yellow', 'blue', 'green']))
                 #pass # enemy = Enemy(choice(x), choice(y), choice(color))
                 enemies.append(enemy)
 
@@ -140,11 +140,15 @@ def main():
         if keys[pygame.K_DOWN] and player.y + player_vel + player.get_height() < HEIGHT:
             player.y += player_vel
 
-        for enemy in enemies[:]: # try without [:]
-            '''if (enemy.y < pos[0] +150 and enemy.y > pos[0] -150) and enemy.x == pos[1]:
-                enemies.remove(enemy)
-            pos = (enemy.y, enemy.x)'''
+        for i, enemy in enumerate(enemies[:]): # try without [:]
+            enemy.move(enemy_vel)
+
+            '''if collide(enemy, enemies[i -1]):
+                print('removed:',enemy.y, 'other:', enemies[i -1].y, i)
+                enemies.remove(enemy)'''
+
             if collide(enemy, player):
+                print('player:', player.y, 'enemy:', enemy.y)
                 CRASH_SOUND.play()
                 time.sleep(1)
                 CRASH_SOUND.stop()
