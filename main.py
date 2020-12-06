@@ -29,17 +29,17 @@ class Car:
     def draw(self, window):
         window.blit(self.img, (self.x, self.y))
 
-    def get_width():
+    def get_width(self):
         return self.img.get_width()
     
-    def get_height():
+    def get_height(self):
         return self.img.get_height()
 
 
 class Player(Car):
     def __init__(self, x, y):
         super().__init__(x, y)
-        self.img = YELLOW_CAR
+        self.img = PLAYER_CAR
         self.mask = pygame.mask.from_surface(self.img)
 
 
@@ -76,7 +76,7 @@ def main():
 
     player_vel = 5
 
-    player = Player(0, 0) # Player(240, 650)
+    player = Player(260, 630) 
 
     clock = pygame.time.Clock()
 
@@ -108,10 +108,14 @@ def main():
                 quit()
 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT] and player.x - player_vel > 0:
+        if keys[pygame.K_LEFT] and player.x - player_vel -80 > 0:
             player.x -= player_vel
-        if keys[pygame.K_RIGHT] and player.x + player_vel + player.get_width() < WIDTH:
+        if keys[pygame.K_RIGHT] and player.x + player_vel + player.get_width() +80 < WIDTH:
             player.x += player_vel
+        if keys[pygame.K_UP] and player.y - player_vel > 0:
+            player.y -= player_vel
+        if keys[pygame.K_DOWN] and player.y + player_vel + player.get_height() < HEIGHT:
+            player.y += player_vel
 
         for enemy in enemies:
             pass
