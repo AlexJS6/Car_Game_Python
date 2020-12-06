@@ -124,9 +124,9 @@ def main():
                 continue
 
         if len(enemies) <= 3:
-            enemy_vel += 0.1
+            enemy_vel += 0.3
             score += 30* enemy_vel
-            for i in range(3):
+            for i in range(4):
                 enemy = Enemy(random.choice([110, 180, 260, 335]), random.randrange(-2000, -500), random.choice(['red', 'yellow', 'blue', 'green']))
                 #pass # enemy = Enemy(choice(x), choice(y), choice(color))
                 enemies.append(enemy)
