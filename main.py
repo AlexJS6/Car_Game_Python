@@ -88,6 +88,12 @@ def main():
     def redraw_window():
         WIN.blit(BG, (0, 0))
 
+        lives_label = main_font.render(f'Lives: {lives}', 1, (150, 0, 0))
+        score_label = main_font.render(f'Score: {lives}', 1, (150, 0, 0))
+
+        WIN.blit(lives_label, (10, HEIGHT - 40))
+        WIN.blit(score_label, (WIDTH - score_label.get_width() -10, 10))
+
         for enemy in enemies:
             enemy.draw(WIN)
 
