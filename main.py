@@ -61,7 +61,9 @@ class Enemy(Car):
 
 
 def collide(obj1, obj2):
-    pass
+    offset_x = int(obj2.x - obj1.x)
+    offset_y = int(obj2.y - obj1.y)
+    return obj1.mask.overlap(obj2.mask, (offset_x, offset_y)) != None
 
     
 def main():
@@ -74,7 +76,7 @@ def main():
     enemies = []
     enemy_vel = 3
 
-    player_vel = 5
+    player_vel = 4.5
 
     player = Player(260, 630) 
 
@@ -107,7 +109,7 @@ def main():
             pass
 
         if len(enemies) <= 3:
-            #enemy_vel += 0.1
+            enemy_vel += 0.1
             for i in range(3):
                 enemy = Enemy(random.choice([110, 180, 260, 335]), random.randrange(-1500, -150), random.choice(['red', 'yellow', 'blue', 'green']))
                 #pass # enemy = Enemy(choice(x), choice(y), choice(color))
@@ -131,12 +133,12 @@ def main():
             enemy.move(enemy_vel)
 
             if collide(enemy, player):
-                pass
-            elif enemy.y > HEIGHT:
                 lives -= 1
                 enemies.remove(enemy)
+            elif enemy.y > HEIGHT:
+                enemies.remove(enemy)
             
-
+# maybe launch in waves
 def main_menu():
     pass
 
