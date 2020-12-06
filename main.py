@@ -87,7 +87,7 @@ def main():
     clock = pygame.time.Clock()
 
     lost = False
-    lost_live_count = 0
+    lost_count = 0
 
     def redraw_window():
         WIN.blit(BG, (0, 0))
@@ -104,7 +104,8 @@ def main():
         player.draw(WIN)
 
         if lost:
-            pass
+            lost_label = lost_font.render('YOU LOST!!!', 1, (255, 0, 0))
+            WIN.blit(lost_label, (WIDTH/2 -lost_label.get_width()/2, 350))
 
         pygame.display.update()
 
@@ -113,10 +114,14 @@ def main():
         redraw_window()
 
         if lives <= 0:
-            pass
+            lost = True
+            lost_count += 1
 
         if lost:
-            pass
+            if lost_count > FPS *3:
+                run = False
+            else:
+                continue
 
         if len(enemies) <= 3:
             enemy_vel += 0.1
