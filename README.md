@@ -5,9 +5,8 @@
 - Duration: `1 day`
 
 ## My Project
-This little Sunday project is a Tetris game with the help of pygame to get better at python and to see the different possibilities that are offered with python/pygame which are amazing and incredibly interesting.  
-This is one of my first projects and first ever game in python and is strongly inspired from a youtube video because those are my first steps with pygame and even python.  
-inspired from: https://www.youtube.com/watch?v=uoR4ilCWwKA&t=6s&ab_channel=TechWithTim
+This little Sunday project is a Car game with the help of pygame to get better at python and because those little projects are really fun.   
+This project was done without tutorial with the help of the projects that I had done before. 
 
 ## Instructions to test the game
 - Open the 'Tetris_in_Python.exe' file
