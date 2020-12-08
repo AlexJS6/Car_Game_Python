@@ -9,12 +9,12 @@ This little Sunday project is a Car game with the help of pygame to get better a
 This project was done without tutorial but with the help of the projects that I had done before. 
 
 ## Instructions to test the game
-- Open the 'Tetris_in_Python.exe' file
-- Download it, accept the antivirus messages, trust me :) OR NOT.
+- Open the 'Car_Game_Python_DL.exe' file
+- Download it, accept the antivirus messages.
 - Then choose were you want to install the game.
-- It will install a folder and in the folder there is a 'tetris.exe' file, open it.
+- It will install a folder and in the folder there is a 'Car_Game_Python.exe' file, open it.
 - You might need to turn off the antivirus temporarily.
-- You can then play tetris and you will surely beat my highscore of 175 ;)
+- You can then play the game and will hopefully enjoy it! ;)
 
 ## The Game 
 
