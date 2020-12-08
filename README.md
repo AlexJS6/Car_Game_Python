@@ -12,7 +12,7 @@ This project was done without tutorial but with the help of the projects that I 
 - Open the 'Car_Game_Python_DL.exe' file
 - Download it, accept the antivirus messages.
 - Then choose were you want to install the game.
-- It will install a folder and in the folder there is a 'Car_Game_Python.exe' file, open it.
+- It will install a folder and in the folder there is a 'main.exe' file, open it.
 - You might need to turn off the antivirus temporarily.
 - You can then play the game and will hopefully enjoy it! ;)
 
