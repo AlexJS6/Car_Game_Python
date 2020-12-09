@@ -7,6 +7,7 @@
 ## My Project
 This little Sunday project is a Car game with the help of pygame to get better at python and because those little projects are really fun.   
 This project was done without tutorial but with the help of the projects that I had done before. 
+The Objectif is to dodge all the cars.
 
 ## Instructions to test the game
 - Open the 'Car_Game_Python_DL.exe' file
